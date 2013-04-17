@@ -1,0 +1,37 @@
+﻿@model ProductWeb.Models.LoginUser
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<script type="text/javascript" src="/ProductWeb/Scripts/jquery-1.8.2.js"></script>
+<script type="text/javascript" src="/ProductWeb/Scripts/ajaxHelper.js"></script>
+
+
+@using (Html.BeginForm("LogOn", "Account", new { ReturnUrl = ViewBag.ReturnUrl }))
+{
+    <div id="loginForm">
+
+        <fieldset  style="height:260px;">
+            <legend>用户登录</legend>
+            <div style="margin-left:5px;float:left" >
+                <label>用户名</label>
+                @Html.TextBoxFor(m=>m.UserName)
+            </div>
+            <div style="margin-left:5px;">
+                <label>密码</label>
+                @Html.TextBoxFor(m=>m.Password)
+            </div>
+        </fieldset>
+    
+    </div>
+    <div class="actions" >
+        <input type="submit" id="btnAccountLogin" class="btn primary" value="登录" onclick="onLoginClick(); " />
+        <input type="button" id="btnAccountCancel" class="btn" value="关闭" onclick="window.close();"/>
+    </div>
+}
+ 
+
+

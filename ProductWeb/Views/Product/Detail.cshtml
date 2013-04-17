@@ -1,0 +1,35 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>产品详细页面</title>
+
+    <script type="text/javascript" src="~/Scripts/jquery-1.8.2.js"></script>
+    <script type="text/javascript" src="~/Scripts/ajaxHelper.js"></script> 
+    
+    <script type="text/javascript">
+        function onGetProductDetail() {
+            doAjaxGet("/ProductApi/api/product/get/100", function (result) {
+                $("#txtProductDetail").val(" 产品类型：" + result.ProductType + " 产品名称：" + result.ProductName);
+            });
+        }
+</script>
+</head>
+<body>
+    <div>
+        这里是具体一个产品的详细页面, 表明此时你有权限访问该页面。
+    </div>
+    <div>
+        获取产品详细，需要api端验证用户身份信息。
+    </div>
+<div>
+    <input type="button" value="产品详细" onclick="onGetProductDetail();" />
+    <input type="text" id="txtProductDetail" value="" style="width:420px;height:40px;" />
+</div>
+</body>
+</html>
